@@ -86,7 +86,8 @@ Criamos também o nossos objetos mapeados (que serão utilizados nas consultas G
 
       Field<CPFType>("cpf", resolve: ctx => ctx.Source.CPF);
 
-      Field<StatusClienteType>("StatusCliente", resolve: ctx => statusClienteQuery.Get(ctx.Source.IdStatusCliente));
+      Field<StatusClienteType>("StatusCliente", 
+            resolve: ctx => statusClienteQuery.Get(ctx.Source.IdStatusCliente));
   }
   public StatusClienteType(IClienteQuery clienteQuery)
   {
@@ -96,7 +97,8 @@ Criamos também o nossos objetos mapeados (que serão utilizados nas consultas G
       Field(s => s.IdStatusCliente).Description("Código que identifica o Status");
       Field(s => s.NomeStatusCliente).Description("Nome do Status");
 
-      Field<ListGraphType<ClienteType>>("clientes", resolve: ctx => clienteQuery.GetByStatus(ctx.Source.IdStatusCliente));
+      Field<ListGraphType<ClienteType>>("clientes", 
+            resolve: ctx => clienteQuery.GetByStatus(ctx.Source.IdStatusCliente));
 
   }
   public CPFType()
