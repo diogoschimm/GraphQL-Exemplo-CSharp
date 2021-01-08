@@ -151,3 +151,45 @@ O Método de Extensão AddDependencies()
       return services;
   }
 ```
+
+## Exemplos de Querys
+
+```graphQL
+## Query 1 (Buscar statusCliente 1 e todos os clientes desse status)
+{
+  statusCliente(idStatusCliente: 1) {
+    idStatusCliente
+    nomeStatusCliente
+    clientes {
+      idCliente
+      nomeCliente
+    }
+  }
+}
+
+## Query 2 (Buscar Cliente 2)
+{
+  cliente(idCliente: 2) {
+    nomeCliente
+    cpf {
+      number
+    }
+  }
+}
+
+## Query 3 (Buscar listagem de Clientes)
+{
+  clienteList {
+    idCliente
+    nomeCliente
+    statusCliente {
+      idStatusCliente
+      nomeStatusCliente
+    }
+    cpf {
+      number
+    }
+  }
+}
+
+```
